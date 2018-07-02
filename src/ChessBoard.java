@@ -3,8 +3,8 @@ public class ChessBoard {
 	
 	private static Square[][] squares = new Square[8][8];
 	
-	static final char BOARD_LETTERS[] = {'A','B','C','D','E','F','G','H'};
-	static final int BOARD_NUMS[] = {1,2,3,4,5,6,7,8};
+	public static final char BOARD_LETTERS[] = {'A','B','C','D','E','F','G','H'};
+	public static final int BOARD_NUMS[] = {1,2,3,4,5,6,7,8};
 
 	public ChessBoard() {
 		

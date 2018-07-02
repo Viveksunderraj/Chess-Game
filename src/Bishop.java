@@ -21,7 +21,7 @@ public class Bishop extends Piece {
 		Square fromSquare = ChessBoard.getSquare(moveFromY, moveFromX);
 		Square toSquare = ChessBoard.getSquare(moveToY, moveToX);
 		
-		Direction direction;
+		Direction direction = null;
 		
 		if(moveToX > moveFromX){
 			if(moveToY < moveFromY){
@@ -31,13 +31,16 @@ public class Bishop extends Piece {
 				direction = Direction.BOTTOM_RIGHT;
 			}
 		}
-		else{
+		else if(moveToY != moveFromY){
 			if(moveToY < moveFromY){
 				direction = Direction.TOP_LEFT;
 			}
 			else{
 				direction = Direction.BOTTOM_LEFT;
 			}
+		}
+		else {
+			return false;
 		}
 		
 		
@@ -67,6 +70,7 @@ public class Bishop extends Piece {
 				return true;
 			}
 			else if((diagDistance == distanceToCover) && (testSquare.getPiece().getColor() != playerColor)) {
+				isGameOver(toSquare);
 				displayCutMessage(fromSquare, toSquare);
 				return true;
 			}

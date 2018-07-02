@@ -28,6 +28,7 @@ public class King extends Piece {
 				}
 				else if((toSquare.getPiece().getPieceType() != PieceType.BLANK_PIECE) && (toSquare.getPiece().getColor() != playerColor)) {
 					displayCutMessage(fromSquare, toSquare);
+					isGameOver(toSquare);
 					return true;
 				}
 				
@@ -41,6 +42,7 @@ public class King extends Piece {
 				}
 				else if((toSquare.getPiece().getPieceType() != PieceType.BLANK_PIECE) && (toSquare.getPiece().getColor() != playerColor)) {
 					displayCutMessage(fromSquare, toSquare);
+					isGameOver(toSquare);
 					return true;
 				}
 				
@@ -54,6 +56,7 @@ public class King extends Piece {
 				}
 				else if((toSquare.getPiece().getPieceType() != PieceType.BLANK_PIECE) && (toSquare.getPiece().getColor() != playerColor)) {
 					displayCutMessage(fromSquare, toSquare);
+					isGameOver(toSquare);
 					return true;
 				}
 				

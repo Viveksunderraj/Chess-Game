@@ -13,6 +13,7 @@ public abstract class Piece {
 		
 	}
 	
+	abstract boolean isValidMove(int[] source, int[] destination, Color color);
 	
 	public enum PieceType {
 		BLACK_ROOK, BLACK_KNIGHT, BLACK_BISHOP, BLACK_QUEEN, BLACK_KING, BLACK_PAWN,
@@ -33,9 +34,20 @@ public abstract class Piece {
 	}
 	
 	public void displayCutMessage(Square fromSquare, Square toSquare) {
+		System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 		System.out.println(toSquare.getPiece().getPieceType() + " has been cut by " + fromSquare.getPiece().getPieceType());
+		System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 	}
 	
-	abstract boolean isValidMove(int[] source, int[] destination, Color color);
+	public void isGameOver(Square toSquare) {
+		if(toSquare.getPiece().getPieceType() == PieceType.BLACK_KING) {
+			System.out.println("WHITE PLAYER HAS WON THE GAME");
+			ChessGame.gameNotOver = false;
+		}
+		else if(toSquare.getPiece().getPieceType() == PieceType.WHITE_KING){
+			System.out.println("BLACK PLAYER HAS WON THE GAME");
+			ChessGame.gameNotOver = false;
+		}
+	}
 	
 }

@@ -7,8 +7,8 @@ public class ChessGame {
 	private Player blackPlayer;
 	private Player whitePlayer;
 	
-	static Scanner sc = new Scanner(System.in);
-	static boolean gameNotOver = true;
+	private static Scanner sc = new Scanner(System.in);
+	public static boolean gameNotOver = true;
 
 	public ChessGame(Player blackPlayer, Player whitePlayer) {
 
@@ -32,14 +32,6 @@ public class ChessGame {
 		}
 		return name;
 	}
-	
-/*	public static Player getBlackPlayer() {
-		return blackPlayer;
-	}
-	
-	public static Player getWhitePlayer() {
-		return this.whitePlayer;
-	}*/
 	
 	private static Color getColor(String name) {
 		System.out.print("Hey " + name + " please select a color.\n>> ");

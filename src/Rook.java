@@ -25,25 +25,37 @@ public class Rook extends Piece {
 		if(moveToY == moveFromY){
 			if(moveToX > moveFromX){
 				direction = Direction.RIGHT;
+				//System.out.println("INSIDE RIGHT");
 			}
 			else{
 				direction = Direction.LEFT;
+				//System.out.println("INSIDE LEFT");
 			}
 		}
 		
 		else if(moveToX == moveFromX){
 			if(moveToY > moveFromY){
 				direction = Direction.BOTTOM;
+				//System.out.println("INSIDE BOTTOM");
 			}
 			else{
 				direction = Direction.TOP;
+				//System.out.println("INSIDE TOP");
 			}
 		}
 		else{
 			return false;
 		}
 		
-		int distanceToCover = Math.abs(moveToX - moveFromX);
+		int distanceToCover;
+		
+	if(direction == Direction.RIGHT || direction == Direction.LEFT) {
+			distanceToCover = Math.abs(moveToX - moveFromX);
+		}
+		else {
+			distanceToCover = Math.abs(moveToY - moveFromY);
+		}
+		
 		Square testSquare = null;
 		
 		for(int distance = 1; distance <= distanceToCover; distance++) {
@@ -71,6 +83,7 @@ public class Rook extends Piece {
 			//THIS CONDITION IS FOR A MOVE WHICH INCLUDES CUTTING
 			else if((distance == distanceToCover) && (testSquare.getPiece().getColor() != playerColor)){
 				displayCutMessage(fromSquare, toSquare);
+				isGameOver(toSquare);
 				return true;
 			}
 		}

@@ -23,7 +23,6 @@ public class Knight extends Piece {
 		
 			if(displaceX != 0){
 				if(moveToX == moveFromX + displaceX){
-					//IF THE X DISPLACE WAS 1 THEN THE Y DISPLACE MUST BE 2
 					if(Math.abs(displaceX) == 1){ 
 						for(int displaceY = -2; displaceY <= 2; displaceY += 4){
 							if(moveToY == moveFromY + displaceY){
@@ -50,6 +49,7 @@ public class Knight extends Piece {
 			}
 			else if(toSquare.getPiece().getColor() != playerColor) {
 				displayCutMessage(fromSquare, toSquare);
+				isGameOver(toSquare);
 				return true;
 			}
 		}

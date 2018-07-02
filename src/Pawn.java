@@ -45,6 +45,7 @@ public class Pawn extends Piece {
 			if((moveToX == moveFromX - 1) || (moveToX == moveFromX + 1)){
 				if((!isDestinationEmpty) && (toSquare.getPiece().color != playerColor)){
 					displayCutMessage(fromSquare, toSquare);
+					isGameOver(toSquare);
 					isFirstMove = false;
 					return true; 
 				}
